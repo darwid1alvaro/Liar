@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>
+       Resolucion de dudas
+    </h2>
+    <div>
+        <p>Deimon
+        </p>
+    </div>
+    <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div
+                    class="form-group">
+                    <h3>chat</h3><hr>
+                    <!-- <label for="name">Prompt</label> -->
+                    <textarea rows="10" placeholder="Realiza tus preguntas" class="form-control" cols="6" [(ngModel)]="promptText"></textarea>
+
+                </div>
+                <div>
+                    <br>
+                        <button class="btn btn-primary" (click)="checkResponse()">
+                            Verificar respuesta
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Chat</h3><hr>
+                    <h4 *ngIf="showSpinner">Procesando ...</h4>
+                    <div *ngFor="let choice of response?.choices">
+                        <p *ngFor="let data of getText(choice.text)" class="responseStyle">
+                            {{data}}
+                        <br>
+                        </p>                        
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+                
+
